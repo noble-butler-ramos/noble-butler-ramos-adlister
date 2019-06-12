@@ -20,11 +20,11 @@ public class Product implements Serializable {
 
     //     insert into tools ( id,  title,  priceInCents,  description) values() CRUD
 
-//    public Product(String title, long priceInCents, String description) {
-//        this.title = title;
-//        this.priceInCents = priceInCents;
-//        this.description = description;
-//    }
+    public Product(String title, long priceInCents, String description) {
+        this.title = title;
+        this.priceInCents = priceInCents;
+        this.description = description;
+    }
 
     public Product(long id, String title, long priceInCents, String description) {
         this.id = id;

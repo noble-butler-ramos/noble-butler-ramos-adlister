@@ -11,7 +11,6 @@
         <h1>Showing product: ${product.title}</h1>
         <p>Price: $${product.priceInCents/100}</p>
         <p>${product.description}</p>
-
     </div>
 </body>
 </html>

@@ -10,9 +10,12 @@ public class ShowProductServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long productId = Long.parseLong(request.getParameter("id"));
+        // Create the connection and cross the bridge
         Products productDao = DaoFactory.getProductsDao();
-        Product p = productDao.findById(productId);
-        request.setAttribute("product", p);
+        // Gets the product by it's id fro ListProducts
+        Product product = productDao.findById(productId);
+
+        request.setAttribute("product", product);
         request.getRequestDispatcher("/product-show.jsp").forward(request, response);
     }
 

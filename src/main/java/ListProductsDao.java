@@ -14,6 +14,15 @@ public class ListProductsDao implements Products {
 
     @Override
     public Product findById(long id) {
-        return products.get((int) id);
+        return products.get((int) id - 1);
+    }
+
+    @Override
+    public long createProduct(Product product) {
+//        assign an ID
+        product.setId(products.size()+1);
+        //add a new Product to the arraylist
+        products.add(product);
+        return product.getId();
     }
 }
