@@ -23,7 +23,7 @@ public class MySQLLecture {
 
             Statement statement = connection.createStatement();
 
-            String query = "select artist, id  from albums";
+            String query = "select id, artist, sales  from albums";
             ResultSet rs = statement.executeQuery(query);
 
             while(rs.next()){
