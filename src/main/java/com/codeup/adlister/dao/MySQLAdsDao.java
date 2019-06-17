@@ -51,6 +51,24 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Ad findOne(long id) {
+
+//        String sql = "select * from ads where id = " + id;
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from ads where id = ?");
+    //            Extra step to set the values, escaping or parsing
+            preparedStatement.setLong(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return extractAd(rs);
+
+        }catch(SQLException e ){
+            throw new RuntimeException("Error retrieving an ad.", e);
+        }
+    }
+
     private String createInsertQuery(Ad ad) {
         return "INSERT INTO ads(user_id, title, description) VALUES "
             + "(" + ad.getUserId() + ", "
