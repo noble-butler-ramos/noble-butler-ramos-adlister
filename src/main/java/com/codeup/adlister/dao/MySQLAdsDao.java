@@ -54,6 +54,23 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
+    @Override
+    public Ad findAdByTitle(String title){
+        String query = "Select * from ads where title = ?";
+        try{
+            System.out.println(title);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, title);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        }catch (SQLException e){
+            throw new RuntimeException("Error finding a ad by title", e);
+        }
+
+    }
+
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
@@ -71,4 +88,5 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
 }
