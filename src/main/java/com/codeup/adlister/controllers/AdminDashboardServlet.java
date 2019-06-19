@@ -13,6 +13,10 @@ import java.io.IOException;
 @WebServlet(name = "AdminDashboardServlet", urlPatterns = "/admin")
 public class AdminDashboardServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        long id = Long.parseLong(request.getParameter("deleteUser"));
+//        request.getSession().setAttribute("deleteUser", id);
+        DaoFactory.getUsersDao().deleteUsers(id);
+        response.sendRedirect("/admin");
 
     }
 

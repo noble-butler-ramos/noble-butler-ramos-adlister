@@ -9,5 +9,6 @@ public interface Users {
     User findByUsername(String username);
     Long insert(User user);
     User findById(Long user_id);
+    void deleteUsers(Long id);
 
 }

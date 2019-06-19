@@ -82,6 +82,18 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public void deleteUsers(Long id) {
+        try {
+            String insertQuery = "Delete From users where id = ?";
+            PreparedStatement ps = connection.prepareStatement(insertQuery);
+            ps.setLong(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Unable to delete user", e);
+        }
+    }
+
 
     private User extractUser(ResultSet rs) throws SQLException {
         return new User(
@@ -99,6 +111,5 @@ public class MySQLUsersDao implements Users {
         }
         return users;
     }
-
 
 }
