@@ -1,5 +1,7 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.DaoFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +22,7 @@ public class AdminDashboardServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+        request.setAttribute("users", DaoFactory.getUsersDao().all());
         request.getRequestDispatcher("/WEB-INF/secret-admin-page.jsp").forward(request, response);    }
 
     }

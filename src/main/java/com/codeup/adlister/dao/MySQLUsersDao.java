@@ -4,6 +4,8 @@ import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySQLUsersDao implements Users {
     private Connection connection;
@@ -21,6 +23,25 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+
+    @Override
+    public List<User> all() {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("Select * from users");
+            ResultSet rs = stmt.executeQuery();
+            return showUsersFromResults(rs);
+        } catch (SQLException e) {
+        throw new RuntimeException("Error retrieving all users.", e);          }
+    }
+
+    private List<User> showUsersFromResults(ResultSet rs) throws SQLException {
+        List<User> users = new ArrayList<>();
+        while (rs.next()) {
+            users.add(extractUser(rs));
+        }
+        return users;
+    }
 
     @Override
     public User findByUsername(String username) {
