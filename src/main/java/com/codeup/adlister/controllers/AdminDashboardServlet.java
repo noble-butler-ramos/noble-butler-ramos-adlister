@@ -17,6 +17,8 @@ public class AdminDashboardServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
