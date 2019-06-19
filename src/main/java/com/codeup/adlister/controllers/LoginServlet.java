@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        boolean isAdmin = true;
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
@@ -32,8 +32,12 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
+        boolean isAdmin = user.isAdmin();
+
+
         if (isAdmin) {
             request.getSession().setAttribute("isAdmin", true);
+            request.getSession().setAttribute("user", user);
             response.sendRedirect("/admin");
             return;
         }
