@@ -26,13 +26,14 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public List<User> all() {
-        PreparedStatement stmt = null;
+        PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement("Select * from users");
             ResultSet rs = stmt.executeQuery();
             return showUsersFromResults(rs);
         } catch (SQLException e) {
-        throw new RuntimeException("Error retrieving all users.", e);          }
+        throw new RuntimeException("Error retrieving all users.", e);
+        }
     }
 
     private List<User> showUsersFromResults(ResultSet rs) throws SQLException {

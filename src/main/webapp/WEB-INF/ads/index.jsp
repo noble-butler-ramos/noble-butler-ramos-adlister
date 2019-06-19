@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
+    <h1>Here are all the ads!</h1>
 
     <form action="/ad" method="post">
         <input type="text" name="searchAd" placeholder="enter ad to search">
