@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLUsersDao implements Users {
-    private Connection connection;
+    private Connection connection = null;
 
     public MySQLUsersDao(Config config) {
         try {
@@ -36,14 +36,6 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-    private List<User> showUsersFromResults(ResultSet rs) throws SQLException {
-        List<User> users = new ArrayList<>();
-        while (rs.next()) {
-            users.add(extractUser(rs));
-        }
-        return users;
-    }
-
 
 
     @Override
@@ -52,7 +44,9 @@ public class MySQLUsersDao implements Users {
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, username);
-            return extractUser(stmt.executeQuery());
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractUser(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error finding a user by username", e);
         }
@@ -88,10 +82,8 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
-            return null;
-        }
         return new User(
             rs.getLong("id"),
             rs.getString("username"),
@@ -100,5 +92,13 @@ public class MySQLUsersDao implements Users {
             rs.getBoolean("isAdmin")
         );
     }
+    private List<User> showUsersFromResults(ResultSet rs) throws SQLException {
+        List<User> users = new ArrayList<>();
+        while (rs.next()) {
+            users.add(extractUser(rs));
+        }
+        return users;
+    }
+
 
 }
