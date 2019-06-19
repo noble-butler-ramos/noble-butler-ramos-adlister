@@ -34,16 +34,17 @@ public class LoginServlet extends HttpServlet {
         }
 
         boolean isAdmin = user.isAdmin();
+        boolean validAttempt = Password.check(password, user.getPassword());
 
 
-        if (isAdmin) {
+        if (isAdmin && validAttempt) {
             request.getSession().setAttribute("isAdmin", true);
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/admin");
             return;
         }
 
-        boolean validAttempt = Password.check(password, user.getPassword());
+
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);

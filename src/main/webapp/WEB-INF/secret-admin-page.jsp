@@ -9,10 +9,10 @@
 <jsp:include page="partials/navbar.jsp" />
 <body>
 <h1>Admin Page</h1>
-<c:forEach var="user" items="${users}">
+<c:forEach var="singleuser" items="${users}">
     <div class="col-md-6">
-        <h2>${user.username}</h2>
-        <p>${user.email}</p>
+        <h2>${singleuser.username}</h2>
+        <p>${singleuser.email}</p>
     </div>
 </c:forEach>
 </body>
