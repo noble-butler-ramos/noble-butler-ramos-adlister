@@ -8,6 +8,6 @@ public interface Users {
     List<User> all();
     User findByUsername(String username);
     Long insert(User user);
-
+    User findById(Long user_id);
 
 }
