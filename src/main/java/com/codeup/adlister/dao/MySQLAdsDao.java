@@ -70,6 +70,21 @@ public class MySQLAdsDao implements Ads {
 
     }
 
+    @Override
+    public Ad findAdById(Long id){
+        String query = "Select * from ads where id = ?";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setLong(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        }catch (SQLException e){
+            throw new RuntimeException("Error finding a ad by title", e);
+        }
+
+    }
+
 
 
     private Ad extractAd(ResultSet rs) throws SQLException {
@@ -98,5 +113,10 @@ public class MySQLAdsDao implements Ads {
         }catch (SQLException e){
             throw new RuntimeException("Unable to delete ad", e);
         }
+    }
+
+    @Override
+    public void updateAds(Long id) {
+
     }
 }

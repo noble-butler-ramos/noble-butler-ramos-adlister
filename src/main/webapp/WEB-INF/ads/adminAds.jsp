@@ -26,6 +26,10 @@
                 <input name="id" value="${ad.id}"type="hidden">
                 <button type="submit">Delete this ad</button>
             </form>
+            <form action="/editAd" method="post">
+                <input name="editId" value="${ad.id}" type="hidden">
+                <input type="submit" value="Edit Ad" />
+            </form>
         </div>
     </c:forEach>
 
