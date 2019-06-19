@@ -15,6 +15,8 @@
 
 <h2>${ad.title}</h2>
 <p>${ad.description}</p>
+<h2>Username - ${user.username}</h2>
+<p>Email - ${user.email}</p>
 
 
 </body>
