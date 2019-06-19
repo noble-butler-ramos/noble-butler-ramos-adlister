@@ -4,6 +4,7 @@ import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.Password;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +22,8 @@ public class LoginServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        boolean isAdmin = true;
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
@@ -32,8 +33,12 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
+        boolean isAdmin = user.isAdmin();
+
+
         if (isAdmin) {
             request.getSession().setAttribute("isAdmin", true);
+            request.getSession().setAttribute("user", user);
             response.sendRedirect("/admin");
             return;
         }
@@ -42,7 +47,8 @@ public class LoginServlet extends HttpServlet {
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
-            response.sendRedirect("/profile");
+            RequestDispatcher rd = request.getRequestDispatcher("/");
+            rd.forward(request,response);
         } else {
             response.sendRedirect("/login");
         }
