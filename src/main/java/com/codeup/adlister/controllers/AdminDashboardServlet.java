@@ -17,7 +17,7 @@ public class AdminDashboardServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean isAdmin= (boolean)request.getSession().getAttribute("isAdmin");
-        System.out.println(isAdmin);
+
         if (!isAdmin) {
             response.sendRedirect("/login");
             return;
