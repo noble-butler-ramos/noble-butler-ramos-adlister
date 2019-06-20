@@ -9,7 +9,9 @@ public interface Ads {
     Long insert(Ad ad);
     List<Ad> findAdByTitle(String title);
     Ad findAdById(Long id);
+    List<Ad> findbyuser_id(Long user_id);
     void deleteAds(Long id);
     void updateAds(Long id, String title, String description);
+
 
 }
