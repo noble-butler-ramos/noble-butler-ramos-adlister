@@ -127,4 +127,18 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Unable to edit ad, e");
         }
     }
+    @Override
+    public List<Ad> findbyuser_id(Long user_id){
+        String query = "Select * from ads where user_id = ?";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setLong(1, user_id);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return createAdsFromResults(rs);
+        }catch (SQLException e){
+            throw new RuntimeException("Error finding a ad by title", e);
+        }
+
+    }
 }
