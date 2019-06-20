@@ -10,6 +10,6 @@ public interface Ads {
     Ad findAdByTitle(String title);
     Ad findAdById(Long id);
     void deleteAds(Long id);
-    void updateAds(Long id);
+    void updateAds(Long id, String title, String description);
 
 }

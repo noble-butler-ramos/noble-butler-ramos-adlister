@@ -11,9 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-<form>
+<h1>Edit the ad here</h1>
+<form action="/editAd" method="post">
     <input type="text" value="${ad.title}" name="editedTitle">
-    <textarea>${ad.description}</textarea>
+    <textarea name="description">${ad.description}</textarea>
+    <input type="text" value="${ad.id}" name="editId" type="hidden">
+    <input type="submit" value="Edit Ad">
 </form>
 </body>
 </html>
