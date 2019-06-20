@@ -13,9 +13,22 @@ import java.io.IOException;
 @WebServlet(name = "EditAdServlet", urlPatterns = "/editAd")
 public class EditAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long id = Long.parseLong(request.getParameter("editId"));
-        Ad ad = DaoFactory.getAdsDao().findAdById(id);
-        request.setAttribute("ad", ad);
+
+           Long id = Long.parseLong(request.getParameter("editId"));
+           Ad ad = DaoFactory.getAdsDao().findAdById(id);
+           request.setAttribute("ad", ad);
+
+
+        if(request.getParameter("editedTitle") != null) {
+
+            String editedTitle = request.getParameter("editedTitle");
+            String editedDescription = request.getParameter("description");
+            DaoFactory.getAdsDao().updateAds(id,editedTitle,editedDescription);
+            response.sendRedirect("/ads");
+            return;
+
+        }
+
         request.getRequestDispatcher("/WEB-INF/ads/editAd.jsp").forward(request, response);
     }
 
