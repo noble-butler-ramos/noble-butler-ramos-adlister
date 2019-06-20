@@ -12,15 +12,16 @@
 <div class="container">
     <h1>Here are all the ads!</h1>
 
-    <form action="/ad" method="post">
-        <input type="text" name="searchAd" placeholder="enter ad to search">
-        <input type="submit">
-    </form>
+
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
+            <form action="/ad" method="post">
+                <input name="id" value="${ad.id}" type="hidden">
+                <input type="submit" value="Select Ad">
+            </form>
         </div>
     </c:forEach>
 

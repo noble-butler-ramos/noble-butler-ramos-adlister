@@ -14,8 +14,8 @@ import java.io.IOException;
 @WebServlet(name = "SingleAdServlet", urlPatterns = "/ad")
 public class SingleAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String title = request.getParameter("searchAd");
-        Ad ad = DaoFactory.getAdsDao().findAdByTitle(title);
+        Long id = Long.parseLong(request.getParameter("id"));
+        Ad ad = DaoFactory.getAdsDao().findAdById(id);
         User user = DaoFactory.getUsersDao().findById(ad.getUserId());
         request.setAttribute("ad", ad);
         request.setAttribute("user", user);

@@ -55,15 +55,14 @@ public class MySQLAdsDao implements Ads {
         }
     }
     @Override
-    public Ad findAdByTitle(String title){
+    public List<Ad> findAdByTitle(String title){
         String query = "Select * from ads where title = ?";
         try{
             System.out.println(title);
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, title);
             ResultSet rs = preparedStatement.executeQuery();
-            rs.next();
-            return extractAd(rs);
+            return createAdsFromResults(rs);
         }catch (SQLException e){
             throw new RuntimeException("Error finding a ad by title", e);
         }
@@ -127,5 +126,19 @@ public class MySQLAdsDao implements Ads {
         }catch (SQLException e){
             throw new RuntimeException("Unable to edit ad, e");
         }
+    }
+    @Override
+    public List<Ad> findbyuser_id(Long user_id){
+        String query = "Select * from ads where user_id = ?";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setLong(1, user_id);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return createAdsFromResults(rs);
+        }catch (SQLException e){
+            throw new RuntimeException("Error finding a ad by title", e);
+        }
+
     }
 }
