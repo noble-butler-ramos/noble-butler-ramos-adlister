@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <h2>This is my single ad page</h2>
 
 <h2>${ad.title}</h2>
