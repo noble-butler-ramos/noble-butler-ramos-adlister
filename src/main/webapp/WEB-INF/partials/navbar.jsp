@@ -56,6 +56,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/ads/create">Create Ad</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/manage_ads">Manage Ads</a>
+                </li>
             </ul>
             <form action="/ads" class="form-inline my-2 my-lg-0" method="post">
                 <input class="form-control mr-sm-2" type="search" name="title"placeholder="Search" aria-label="Search">
