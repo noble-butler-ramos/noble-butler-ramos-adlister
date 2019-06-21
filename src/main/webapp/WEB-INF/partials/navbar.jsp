@@ -15,7 +15,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0" action="/ads" method="post">
                 <input class="form-control mr-sm-2" type="search" name="title" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
@@ -37,7 +37,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0" action="/ads" method="post">
                 <input class="form-control mr-sm-2" type="search" name="title" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
@@ -57,12 +57,15 @@
                     <a class="nav-link" href="/ads/create">Create Ad</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/manage_ads">Manage Ads</a>
+                    <a class="nav-link" href="/admin/manage_ads">Manage Ads</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/manage_users">Manage Users</a>
                 </li>
             </ul>
             <form action="/ads" class="form-inline my-2 my-lg-0" method="post">
                 <input class="form-control mr-sm-2" type="search" name="title"placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
