@@ -23,6 +23,10 @@
                     <input name="deleteUser" value="${singleuser.id}" type="hidden">
                     <input type="submit" class="btn btn-block btn-primary" value="Delete User">
                 </form>
+                <form action="/admin/manage_users" method="post">
+                    <input name="adminId" type="hidden" value="${singleuser.id}">
+                    <button type="submit">Make user an Admin</button>
+                </form>
             </div>
         </div>
     </c:forEach>

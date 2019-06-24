@@ -36,7 +36,18 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-
+    @Override
+    public void makeAdmin(Boolean admin, Long id){
+        String query = "Update users set isAdmin = ? where id = ?";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setBoolean(1, admin);
+            stmt.setLong(2,id);
+            stmt.executeUpdate();
+        }  catch (SQLException e){
+            throw new RuntimeException("Error making admin", e);
+        }
+    }
 
     @Override
     public User findByUsername(String username) {

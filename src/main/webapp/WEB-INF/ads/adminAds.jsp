@@ -15,7 +15,7 @@
             <div class="card-body">
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
-                <form action="/manage_ads" method="post">
+                <form action="/admin/manage_ads" method="post">
                     <input name="id" value="${ad.id}"type="hidden">
                     <button class="btn btn-primary"type="submit">Delete This Ad</button>
                 </form>

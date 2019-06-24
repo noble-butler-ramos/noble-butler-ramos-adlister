@@ -12,13 +12,19 @@
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
-    <c:forEach var="ad" items="${ads}">
+    <c:forEach var="ad" items="${userAds}">
         <div class="col-md-6">
             <div>
-                <label>${ad.getTitle()}</label>
-            </div>
-            <div>
-                <label>${ad.getDescription()}</label>
+                <label>${ad.title}</label>
+                <label>${ad.description}</label>
+                <form action="/profile" method="post">
+                    <input name="id" value="${ad.id}"type="hidden">
+                    <button class="btn btn-primary"type="submit">Delete This Ad</button>
+                </form>
+                <form action="/editAd" method="post">
+                    <input name="editId" value="${ad.id}" type="hidden">
+                    <button class="btn btn-primary"type="submit">Edit This Ad</button>
+                </form>
             </div>
         </div>
     </c:forEach>
