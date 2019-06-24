@@ -1,23 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dereknoble
-  Date: 2019-06-18
-  Time: 14:15
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %><html>
 <head>
-    <title>Title</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp"/>
+    <title>${ad.title} for sale</title>
+
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<h2>This is my single ad page</h2>
-
-<h2>${ad.title}</h2>
-<p>${ad.description}</p>
-<h2>Username - ${user.username}</h2>
-<p>Email - ${user.email}</p>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<h2 class="text-center">Single Ad Page</h2>
+<div class="card-deck ml-3 mr-3">
+    <div class="card text-center card border-primary mb-3" style="width: 18rem;">
+        <div class="card-body">
+            <h2 class="card-title">${ad.title}</h2>
+            <p class="card-subtitle mb-2 text-muted">${ad.description}</p>
+            <h2 class="card-title">${user.username}</h2>
+            <p class="card-subtitle mb-2 text-muted">${user.email}</p>
+        </div>
+    </div>
+</div>
 
 
 </body>

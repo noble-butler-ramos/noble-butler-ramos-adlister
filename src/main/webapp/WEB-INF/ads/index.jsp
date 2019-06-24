@@ -9,8 +9,8 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<div class="card-deck ml-3 mr-3">
     <h1 class="text-center">Here are all the ads!</h1>
+<div class="card-deck ml-3 mr-3">
     <c:forEach var="ad" items="${ads}">
         <div class="card text-center card border-primary mb-3" style="width: 18rem;">
             <div class="card-body">
