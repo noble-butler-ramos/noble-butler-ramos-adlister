@@ -19,7 +19,7 @@ public class AdminDashboardServlet extends HttpServlet {
         response.sendRedirect("/admin/manage_users");
 
     }
-
+//
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
