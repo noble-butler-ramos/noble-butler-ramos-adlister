@@ -8,7 +8,7 @@
 <jsp:include page="/WEB-INF/partials/head.jsp" />
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-    <h1 class="text-center">Manage Ads</h1>
+    <h1 class="text-center mt-3">Manage Ads</h1>
 <div class="card-deck ml-3 mr-3">
     <c:forEach var="ad" items="${ads}">
         <div class="card text-center" style="width: 18rem;">
