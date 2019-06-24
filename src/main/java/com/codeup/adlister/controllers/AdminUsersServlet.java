@@ -13,11 +13,11 @@ import java.io.IOException;
 @WebServlet(name = "AdminUsersServlet", urlPatterns = "/admin/manage_users")
 public class AdminUsersServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long id = Long.parseLong(request.getParameter("deleteUser"));
-//        request.getSession().setAttribute("deleteUser", id);
-        DaoFactory.getUsersDao().deleteUsers(id);
-        response.sendRedirect("/admin");
 
+        Long adminId = Long.parseLong(request.getParameter("adminId"));
+        Boolean makeAdmin = true;
+        DaoFactory.getUsersDao().makeAdmin(makeAdmin,adminId);
+        response.sendRedirect("/admin/manage_users");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

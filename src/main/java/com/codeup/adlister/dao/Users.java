@@ -10,5 +10,5 @@ public interface Users {
     Long insert(User user);
     User findById(Long user_id);
     void deleteUsers(Long id);
-
+    void makeAdmin(Boolean admin, Long id);
 }

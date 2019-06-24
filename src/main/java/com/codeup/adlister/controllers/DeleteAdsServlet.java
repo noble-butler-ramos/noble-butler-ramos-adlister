@@ -30,7 +30,7 @@ public class DeleteAdsServlet extends HttpServlet {
 
         Long id = Long.parseLong(request.getParameter("id"));
         DaoFactory.getAdsDao().deleteAds(id);
-        response.sendRedirect("/manage_ads");
+        response.sendRedirect("/admin/manage_ads");
 
 
 
