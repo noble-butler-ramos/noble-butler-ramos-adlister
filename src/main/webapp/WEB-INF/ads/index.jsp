@@ -5,25 +5,32 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/modern-business.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-    <h1 class="text-center">Here are all the ads!</h1>
-<div class="card-deck ml-3 mr-3">
-    <c:forEach var="ad" items="${ads}">
-        <div class="card text-center card border-primary mb-3" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">${ad.title}</h5>
-                <p>${ad.description}</p>
+    <h1 class="text-center" style="color: white;">Here are all the ads!</h1>
+
+<div class="container text-center">
+    <div class="row">
+        <c:forEach var="ad" items="${ads}">
+            <div class="card h-100 text-center m-5 col-3">
+                <h4 class="card-header">${ad.title}</h4>
+                <div class="card-body">
+                    <p>${ad.description}</p>
+                </div>
                 <form action="/ad" method="post">
-                    <input name="id" value="${ad.id}" type="hidden">
-                    <input type="submit" value="Select Ad" class="btn btn-primary">
+                    <div class="card-footer">
+                        <input name="id" value="${ad.id}" type="hidden">
+                        <input type="submit" value="Select Ad" class="btn btn-primary">
+                    </div>
                 </form>
             </div>
-        </div>
-    </c:forEach>
+        </c:forEach>
 </div>
-
+</div>
 </body>
 </html>
+
