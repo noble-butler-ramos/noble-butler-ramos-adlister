@@ -40,6 +40,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-lg-4 col-sm-6 mb-1">
             <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="../img/picture-1-1486774242.png" alt=""></a>
