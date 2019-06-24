@@ -25,7 +25,7 @@
                 </form>
                 <form action="/admin/manage_users" method="post">
                     <input name="adminId" type="hidden" value="${singleuser.id}">
-                    <button type="submit">Make user an Admin</button>
+                    <button type="submit" class="btn btn-block btn-primary">Make user an Admin</button>
                 </form>
             </div>
         </div>

@@ -59,7 +59,7 @@ public class MySQLUsersDao implements Users {
             rs.next();
             return extractUser(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding a user by username", e);
+            return null;
         }
     }
 
