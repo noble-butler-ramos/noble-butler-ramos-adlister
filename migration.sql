@@ -27,7 +27,7 @@ insert into users (id, username, email, password, isAdmin)
 values (1, 'mattbutler2499', 'mattbutler2499@hotmail.com', 'pass123', true);
 
 
-update users set isAdmin = 1 where username = 'tim';
+update users set isAdmin = 1 where username = 'matt';
 describe users;
 
 select * from users;
