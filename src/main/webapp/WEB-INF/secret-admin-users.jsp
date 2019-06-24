@@ -15,7 +15,7 @@
 </div>
 <div class="card-deck ml-3 mr-3">
     <c:forEach var="singleuser" items="${users}">
-        <div class="card text-center" style="width: 18rem;">
+        <div class="card text-center card border-primary mb-3" style="width: 18rem;">
             <div class="card-body">
                 <h2 class="card-title">${singleuser.username}</h2>
                 <p class="card-subtitle mb-2 text-muted">${singleuser.email}</p>

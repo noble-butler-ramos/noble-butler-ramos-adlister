@@ -6,12 +6,25 @@
 <body>
 <jsp:include page="/WEB-INF/partials/head.jsp"/>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<h1>Edit the ad here</h1>
-<form action="/editAd" method="post">
-    <input type="text" value="${ad.title}" name="editedTitle">
-    <textarea name="description">${ad.description}</textarea>
-    <input value="${ad.id}" name="editId" type="hidden">
-    <input type="submit" value="Edit Ad">
+    <%--<textarea name="description">${ad.description}</textarea>--%>
+    <%--<input value="${ad.id}" name="editId" type="hidden">--%>
+    <%--<input type="submit" value="Edit Ad">--%>
+
+    <div class="container">
+        <h1>Edit Ad</h1>
+        <form action="/editAd" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" name="editedTitle" class="form-control" type="text" value="${ad.title}">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" class="form-control" type="text">${ad.description}</textarea>
+            </div>
+            <input value="${ad.id}" name="editId" type="hidden">
+            <input type="submit" class="btn btn-block btn-primary" value="Edit Ad">
+        </form>
+    </div>
 </form>
 </body>
 </html>

@@ -16,7 +16,7 @@ public class AdminDashboardServlet extends HttpServlet {
         long id = Long.parseLong(request.getParameter("deleteUser"));
 //        request.getSession().setAttribute("deleteUser", id);
         DaoFactory.getUsersDao().deleteUsers(id);
-        response.sendRedirect("/admin");
+        response.sendRedirect("/admin/manage_users");
 
     }
 
