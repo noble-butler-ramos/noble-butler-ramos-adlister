@@ -24,7 +24,7 @@
                                 <textarea rows="13" type="text" id="description" name="description" class="form-control" placeholder="Description" required></textarea>
                                 <label for="description"></label>
                             </div>
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="Create Ad">Creat Ad</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="Create Ad">Create Ad</button>
                         </form>
                     </div>
                 </div>
