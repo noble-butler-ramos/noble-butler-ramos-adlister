@@ -5,6 +5,10 @@
     <title>${ad.title} for sale</title>
 
 </head>
+<style>
+    body {
+        background: linear-gradient(to right, #0062E6, #33AEFF);    }
+</style>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <h2 class="text-center">Single Ad Page</h2>
